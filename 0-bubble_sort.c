@@ -19,13 +19,14 @@ void bubble_sort(int *array, size_t size)
     if (array == NULL || size < 2)
         return;
 
-    for (size_t pass = 0; pass < size - 1; pass++)
+    do
     {
+        index = 1;
         prev = array;
-        next = array + 1;
+        next = array + index;
         swap_occurred = false;
 
-        for (index = 0; index < size - pass - 1; index++)
+        while (index < size)
         {
             if (*prev > *next)
             {
@@ -35,11 +36,9 @@ void bubble_sort(int *array, size_t size)
                 swap_occurred = true;
                 print_array(array, size);
             }
+            index++;
             prev = next;
-            next = array + index + 2;
+            next = array + index;
         }
-
-        if (!swap_occurred)
-            break;
-    }
+    } while (swap_occurred == true);
 }
