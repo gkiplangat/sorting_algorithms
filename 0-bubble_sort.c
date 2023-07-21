@@ -12,34 +12,32 @@
 
 void bubble_sort(int *array, size_t size)
 {
-	int *prev, *next, temp;
+	int *left, *right, temp;
 	int swap_occurred;
-	size_t index, pass;
+	size_t index;
 
 	if (array == NULL || size < 2)
-	return;
+		return;
 
-	for (pass = 0; pass < size - 1; pass++)
-	{
-		prev = array;
-		next = array + 1;
+	do {
+		index = 1;
+		left = array;
+		right = array + index;
 		swap_occurred = false;
 
-		for (index = 0; index < size - pass - 1; index++)
+		while (index < size)
 		{
-		       if (*prev > *next)
-		       {
-			       temp = *prev;
-			       *prev = *next;
-			       *next = temp;
-			       swap_occurred = true;
-			       print_array(array, size);
-		       }
-		       prev = next;
-		       next = array + index + 2;
+			if (*left > *right)
+			{
+				temp = *left;
+				*left = *right;
+				*right = temp;
+				swap_occurred = true;
+				print_array(array, size);
+			}
+			index++;
+			left = right;
+			right = array + index;
 		}
-		if (!swap_occurred)
-		break;
-	}
+	} while (swap_occurred == true);
 }
-
