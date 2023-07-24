@@ -5,6 +5,8 @@
  * using selection sort algorithm.
  * @array: pointer to array intended to be sorted
  * @size: array's size
+ *
+ * Return: current state of the array
  */
 
 void selection_sort(int *array, size_t size)
