@@ -15,7 +15,7 @@ void selection_sort(int *array, size_t size)
 	if (!array || size < 2)
 		return;
 
-	for (i = 0; i < size -1;i++)
+	for (i = 0; i < size - 1; i++)
 	{
 		/* Assume current element is the minimum value */
 		min_idx = i;
@@ -31,7 +31,9 @@ void selection_sort(int *array, size_t size)
 		if (min_idx != i)
 		{
 			int temp = array[i];
+
 			array[i] = array[min_idx];
+
 			array[min_idx] = temp;
 
 			/* Display array's current state */
